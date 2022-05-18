@@ -7,6 +7,9 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ModeNightIcon from '@mui/icons-material/ModeNight';
 import AnnouncementIcon from '@mui/icons-material/Announcement';
 import React from 'react'
+import {Link} from 'react-router-dom'
+
+/* TODO: Refactor list with mapping to follow DRY  */
 
 const Sidebar = () => {
   return (
@@ -17,7 +20,7 @@ const Sidebar = () => {
               <ListItemIcon>
                 <DashboardIcon />
               </ListItemIcon>
-              <ListItemText primary="Dashboard" />
+              <Link to="/"><ListItemText primary="Dashboard" /></Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -25,7 +28,7 @@ const Sidebar = () => {
               <ListItemIcon>
                 <InboxIcon />
               </ListItemIcon>
-              <ListItemText primary="Messages" />
+              <Link to="Messages"><ListItemText primary="Messages" /></Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -33,7 +36,7 @@ const Sidebar = () => {
               <ListItemIcon>
                 <ClassIcon />
               </ListItemIcon>
-              <ListItemText primary="Tasks/Projects" />
+              <Link to="Tasks"><ListItemText primary="Tasks/Projects" /></Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -41,7 +44,7 @@ const Sidebar = () => {
               <ListItemIcon>
                 <CalendarMonthIcon />
               </ListItemIcon>
-              <ListItemText primary="Schedule" />
+              <Link to="Schedule"><ListItemText primary="Schedule" /></Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -49,7 +52,7 @@ const Sidebar = () => {
               <ListItemIcon>
                 <AnnouncementIcon />
               </ListItemIcon>
-              <ListItemText primary="Announcements" />
+              <Link to="Announcements"><ListItemText primary="Announcements" /></Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -57,7 +60,7 @@ const Sidebar = () => {
               <ListItemIcon>
                 <SettingsIcon />
               </ListItemIcon>
-              <ListItemText primary="Settings" />
+              <Link to="Settings"><ListItemText primary="Settings" /></Link>
             </ListItemButton>
           </ListItem>
         </List>
@@ -82,6 +85,7 @@ const Sidebar = () => {
             </ListItemButton>
           </ListItem>
         </List>
+
     </Box>
   )
 }
