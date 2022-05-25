@@ -7,7 +7,7 @@ import {useState} from 'react'
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
-  justifyContent: "space-between"
+  justifyContent: "space-between",
   
 });
 
@@ -32,7 +32,7 @@ const Navbar = () => {
   return (
     <AppBar position="sticky">
       <StyledToolbar>
-        <Typography variant="h6" sx={{display: {xs: "none", sm: "block"}}}>BBBANK</Typography>
+        <Typography variant="h6" sx={{display: {xs: "none", sm: "block"}}}>LIFE ORGANIZER</Typography>
         <CribIcon sx={{display: {xs: "block", sm: "none"}}} />
       
         

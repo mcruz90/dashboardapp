@@ -5,11 +5,12 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import ClassIcon from '@mui/icons-material/Class';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ModeNightIcon from '@mui/icons-material/ModeNight';
-import AnnouncementIcon from '@mui/icons-material/Announcement';
+import ContactsIcon from '@mui/icons-material/Contacts';
+import NoteIcon from '@mui/icons-material/Note';
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-/* TODO: Refactor list with mapping to follow DRY  */
+/* TODO: Refactor List with mapping to follow DRY  */
 
 const Sidebar = () => {
   return (
@@ -50,9 +51,17 @@ const Sidebar = () => {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <AnnouncementIcon />
+                <NoteIcon />
               </ListItemIcon>
-              <Link to="Announcements"><ListItemText primary="Announcements" /></Link>
+              <Link to="Resources"><ListItemText primary="Resources" /></Link>
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <ContactsIcon />
+              </ListItemIcon>
+              <Link to="Contacts"><ListItemText primary="Contacts" /></Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>

@@ -29,7 +29,7 @@ export default function TaskCard() {
     <List sx={{ width: '100%', maxWidth: 420, bgcolor: 'background.paper', borderRadius: '15px', marginTop: '10px', marginBotton: '10px', marginRight: '10px' }}>
       
       <Typography sx={{ marginLeft: '15px', marginTop: '10px' }}>Tasks</Typography>
-      {["open all", "count all", "work all", "go home"].map((value) => {
+      {["eat", "work", "sleep"].map((value) => {
         const labelId = `checkbox-list-label-${value}`;
 
         return (
