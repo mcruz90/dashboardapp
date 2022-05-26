@@ -14,9 +14,9 @@ const Feed = () => {
           <TaskCard />
         </Grid>
         <Grid item xs={6}>
-          <RecentlyCompleted />
         </Grid>
         <Grid item xs={12} md={12}>
+          <RecentlyCompleted />
         </Grid>
       </Grid>
       
