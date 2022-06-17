@@ -65,7 +65,6 @@ export default function Edit() {
  // This following section will display the form that takes input from the user to update the data.
  return (
    <div>
-     <Outlet />
      <h3>Update Record</h3>
      <form onSubmit={onSubmit}>
        <div className="form-group">
@@ -87,6 +86,7 @@ export default function Edit() {
            value={form.note}
            onChange={(e) => updateForm({ note: e.target.value })}
          />
+         <Outlet />
        </div>
        
        <br />
@@ -99,6 +99,8 @@ export default function Edit() {
          />
        </div>
      </form>
+     
+     
 
    </div>
    

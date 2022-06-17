@@ -2,7 +2,6 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
@@ -14,7 +13,6 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import imgEx from '../img/imgEx.jpg'
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -36,11 +34,11 @@ export default function InfoCard() {
 
   return (
     
-    <Card sx={{ bgcolor: 'background.paper', borderRadius: '15px', marginTop: '20px' }}>
+    <Card sx={{ bgcolor: 'background.paper', borderRadius: '20px', marginTop: '10px' }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
+            !!
           </Avatar>
         }
         action={
@@ -48,20 +46,13 @@ export default function InfoCard() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Weekly Social"
+        title="Have you checked our CoaguChek stock?"
         subheader="May 18, 2022"
       />
-      <CardMedia
-        component="img"
-        height="250"
-        image={imgEx} 
-        alt="Paella dish"
-      />
+     
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like.
+          Remember to regularly check our stock of CoaguChek strips! Delivery timelines are 2-3 business days, so plan ahead!
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

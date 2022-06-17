@@ -1,21 +1,32 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
- 
+import { Link, Outlet } from "react-router-dom";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 const Record = (props) => (
- <tr>
-   <td>{props.record.name}</td>
-   <td>{props.record.note}</td>
-   <td>
-     <Link className="btn btn-link" to={`/edit/${props.record._id}`}>Edit</Link> |
-     <button className="btn btn-link"
-       onClick={() => {
-         props.deleteRecord(props.record._id);
-       }}
-     >
-       Delete
-     </button>
-   </td>
- </tr>
+  <TableRow>
+   <TableCell component="th" scope="row">
+                {props.record.name}
+              </TableCell>
+              <TableCell align="left">{props.record.note}</TableCell>
+              <TableCell align="right"><Link className="btn btn-link" to={`/edit/${props.record._id}`}>Edit</Link> |
+              <Button variant="outlined" startIcon={<DeleteIcon />}
+                onClick={() => {
+                  props.deleteRecord(props.record._id);
+                }}
+              >
+              </Button>
+              </TableCell>
+              <Outlet />
+              </TableRow>
+
 );
  
 export default function RecordList() {
@@ -66,18 +77,19 @@ export default function RecordList() {
  
  // This following section will display the table with the records of individuals.
  return (
-   <div>
-     <h3>Record List</h3>
-     <table className="table table-striped" style={{ marginTop: 20 }}>
-       <thead>
-         <tr>
-           <th>Name</th>
-           <th>Note</th>
-           <th>Action</th>
-         </tr>
-       </thead>
-       <tbody>{recordList()}</tbody>
-     </table>
+   <div style={{ paddingLeft: 20 }}>
+     <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 450 }} aria-label="simple table">
+      <TableHead>
+          <TableRow>
+          <TableCell>Staff Name</TableCell>
+            <TableCell align="left">Note</TableCell>
+            <TableCell align="right">Action</TableCell>
+            </TableRow>
+        </TableHead>
+       <TableBody>{recordList()}</TableBody>
+     </Table>
+     </TableContainer>
    </div>
  );
 }

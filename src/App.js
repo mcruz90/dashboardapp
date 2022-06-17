@@ -29,6 +29,7 @@ function App() {
             <Route path="/edit">
               <Route path=":id" element={<Edit />} />
             </Route>
+            
             <Route path="/create" element={<Create />} />
             <Route path="/recordlist" element={<RecordList />} />
             <Route path="messages" element={<Messages />}/>

@@ -32,7 +32,7 @@ const Navbar = () => {
   return (
     <AppBar position="sticky">
       <StyledToolbar>
-        <Typography variant="h6" sx={{display: {xs: "none", sm: "block"}}}>LIFE ORGANIZER</Typography>
+        <Typography variant="h6" sx={{display: {xs: "none", sm: "block"}}}>MERCH DASHBOARD</Typography>
         <CribIcon sx={{display: {xs: "block", sm: "none"}}} />
       
         

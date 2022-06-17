@@ -9,7 +9,7 @@ import ContactsIcon from '@mui/icons-material/Contacts';
 import NoteIcon from '@mui/icons-material/Note';
 import React from 'react'
 import {Link} from 'react-router-dom'
-
+ 
 /* TODO: Refactor List with mapping to follow DRY  */
 
 const Sidebar = () => {
@@ -21,7 +21,7 @@ const Sidebar = () => {
               <ListItemIcon>
                 <DashboardIcon />
               </ListItemIcon>
-              <Link to="/"><ListItemText primary="Dashboard" /></Link>
+              <Link style={{ textDecoration: 'none', color: '#55585A'}} to="/"><ListItemText primary="Dashboard" /></Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -29,7 +29,7 @@ const Sidebar = () => {
               <ListItemIcon>
                 <InboxIcon />
               </ListItemIcon>
-              <Link to="Messages"><ListItemText primary="Messages" /></Link>
+              <Link style={{ textDecoration: 'none', color: '#55585A' }} to="Messages"><ListItemText primary="Messages" /></Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -37,7 +37,7 @@ const Sidebar = () => {
               <ListItemIcon>
                 <ClassIcon />
               </ListItemIcon>
-              <Link to="Tasks"><ListItemText primary="Tasks/Projects" /></Link>
+              <Link style={{ textDecoration: 'none', color: '#55585A' }} to="Tasks"><ListItemText primary="Tasks/Projects" /></Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -45,7 +45,7 @@ const Sidebar = () => {
               <ListItemIcon>
                 <CalendarMonthIcon />
               </ListItemIcon>
-              <Link to="Schedule"><ListItemText primary="Schedule" /></Link>
+              <Link style={{ textDecoration: 'none', color: '#55585A' }} to="Schedule"><ListItemText primary="Schedule" /></Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -53,7 +53,7 @@ const Sidebar = () => {
               <ListItemIcon>
                 <NoteIcon />
               </ListItemIcon>
-              <Link to="Resources"><ListItemText primary="Resources" /></Link>
+              <Link style={{ textDecoration: 'none', color: '#55585A' }} to="Resources"><ListItemText primary="Resources" /></Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -61,7 +61,7 @@ const Sidebar = () => {
               <ListItemIcon>
                 <ContactsIcon />
               </ListItemIcon>
-              <Link to="Contacts"><ListItemText primary="Contacts" /></Link>
+              <Link style={{ textDecoration: 'none', color: '#55585A' }} to="Contacts"><ListItemText primary="Contacts" /></Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -69,7 +69,7 @@ const Sidebar = () => {
               <ListItemIcon>
                 <SettingsIcon />
               </ListItemIcon>
-              <Link to="Settings"><ListItemText primary="Settings" /></Link>
+              <Link style={{ textDecoration: 'none', color: '#55585A' }} to="Settings"><ListItemText primary="Settings" /></Link>
             </ListItemButton>
           </ListItem>
         </List>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import {Box } from '@mui/material'
  
 export default function Create() {
  const [form, setForm] = useState({
@@ -40,7 +41,7 @@ export default function Create() {
  
  // This following section will display the form that takes the input from the user.
  return (
-   <div>
+  <Box flex={4} padding={3} bgcolor="#F4F4F4">
      <h3>Create New Message</h3>
      <form onSubmit={onSubmit}>
        <div className="form-group">
@@ -72,6 +73,6 @@ export default function Create() {
          />
        </div>
      </form>
-   </div>
+   </Box>
  );
 }
