@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate, Outlet } from "react-router";
+import { useParams, useNavigate } from "react-router";
+import Box from '@mui/material/Box';
  
 export default function Edit() {
  const [form, setForm] = useState({
@@ -64,8 +65,8 @@ export default function Edit() {
  
  // This following section will display the form that takes input from the user to update the data.
  return (
-   <div>
-     <h3>Update Record</h3>
+  <Box flex={4} padding={3} bgcolor="#F4F4F4">
+     <h3>Update Note</h3>
      <form onSubmit={onSubmit}>
        <div className="form-group">
          <label htmlFor="name">Name: </label>
@@ -86,7 +87,6 @@ export default function Edit() {
            value={form.note}
            onChange={(e) => updateForm({ note: e.target.value })}
          />
-         <Outlet />
        </div>
        
        <br />
@@ -102,7 +102,7 @@ export default function Edit() {
      
      
 
-   </div>
+   </Box>
    
  );
 }

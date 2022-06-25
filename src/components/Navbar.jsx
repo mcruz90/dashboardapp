@@ -8,6 +8,10 @@ import {useState} from 'react'
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
   justifyContent: "space-between",
+  backgroundColor: "#fff",
+  color: '#004777',
+  elevation: 0
+
   
 });
 
@@ -30,7 +34,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <AppBar position="sticky">
+    <AppBar position="sticky" elevation={0}>
       <StyledToolbar>
         <Typography variant="h6" sx={{display: {xs: "none", sm: "block"}}}>MERCH DASHBOARD</Typography>
         <CribIcon sx={{display: {xs: "block", sm: "none"}}} />

@@ -53,18 +53,8 @@ const Resources = () => {
   return (
     <Box flex={4} padding={3} bgcolor="#F4F4F4">
       <Typography variant="h5">Resources</Typography>
-      <Typography variant="subtitle">Quick add</Typography>
+      <Typography variant="subtitle">View documents/templates/procedures for all merch tasks</Typography>
     
-    <Box><Typography variant="body">
-      <li>Cash/Till Procedures (Daily Reports)</li>
-      <li>Positec Reporting Procedures (requested by managers; Comp. stockings; AR listing)</li>
-      <li>OTC Procedures</li>
-      <li>Compression Stockings</li>
-      <li>Month-end procedures</li>
-      <li>Inventory management / Inventory Day</li>
-      <li>Ordering supplies (boxes, special vnedors)</li>
-      <li>ODSP procurement procedures</li>
-    </Typography></Box>
       
     
     <Box sx={{ width: '100%' }}>
@@ -75,12 +65,14 @@ const Resources = () => {
           <Tab label="Kroll" {...a11yProps(2)} />
           <Tab label="Ordering Supplies" {...a11yProps(3)} />
           <Tab label="Forms/Templates" {...a11yProps(4)} />
+          <Tab label="Procedures" {...a11yProps(5)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
         <DeliveryDocuments />
       </TabPanel>
       <TabPanel value={value} index={1}>
+        <p>Ordering OTC -- PO and Receiving</p>
       </TabPanel>
       <TabPanel value={value} index={2}>    
       </TabPanel>
@@ -89,6 +81,11 @@ const Resources = () => {
       </TabPanel>
       <TabPanel value={value} index={4}>  
         <FormDocuments />  
+      </TabPanel>
+      <TabPanel value={value} index={5}>  
+        <p>Cash/Till Procedures / Opening / Closing Procedures</p>
+        <p>Reporting Procedures (daily cash/month-end/manager-requested reports)</p>
+        <p>Inventory Day</p>
       </TabPanel>
     </Box>
     </Box>

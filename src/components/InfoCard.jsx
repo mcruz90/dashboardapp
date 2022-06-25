@@ -1,105 +1,108 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
+import Box from '@mui/material/Box';
+import { useTheme } from '@mui/material/styles';
+import MobileStepper from '@mui/material/MobileStepper';
+import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Button from '@mui/material/Button';
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
+const steps = [
+  {
+    label: 'Inventory audits',
+    description: `Take advantage of down periods to audit our OTC on-hands
+    to make sure our inventory and pricing is up-to-date.`,
+    buttonLabel: <Button disableElevation variant="contained">More info</Button>,
+  },
+  {
+    label: 'Calendar review',
+    description:
+      `Remember to review the calendar weekly to check for RiTux/Truxima/Ruxience
+      prescriptions that need to be brought down to the in-patient pharmacy`,
+      buttonLabel: <Button disableElevation variant="contained">More Info</Button>,
+  },
+  {
+    label: 'CoaguChek strips',
+    description: `Don't forget to check our stock regularly! Order directly from
+            Roche before 4pm; ETA is roughly 3 business days so plan accordingly. `,
+    buttonLabel: <Button>More Info</Button>,
+  },
+  {
+    label: 'Need a refresher?',
+    description: `Has it been a while since you've set up a Purolator delivery?
+      Global Payments POS slips not matching our Positec reports? Can't remember
+      where our blood pressure machines come from? Visit the 'Resources'
+      section to review procedures and tips on troubleshooting common and rare issues.
+         `,
+    buttonLabel: <Button>More Info</Button>,
+  },
+];
 
 export default function InfoCard() {
-  const [expanded, setExpanded] = React.useState(false);
+  const theme = useTheme();
+  const [activeStep, setActiveStep] = React.useState(0);
+  const maxSteps = steps.length;
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
   return (
-    
-    <Card sx={{ bgcolor: 'background.paper', borderRadius: '20px', marginTop: '10px' }}>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            !!
-          </Avatar>
+    <Box sx={{mt: 1, background: 'linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)', borderRadius: '10px' }}>
+      <Paper
+        elevation={0}
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          height: 50,
+          pl: 2,
+          bgcolor: 'transparent',
+          
+        }}
+      >
+        <Typography sx={{ color: 'white'}} variant="h6">{steps[activeStep].label}</Typography>
+      </Paper>
+      <Box sx={{ height: 100, p: 2}}>
+        <Typography variant="body2" sx={{ color: 'white',}}>{steps[activeStep].description}</Typography>
+        <div align="right" style={{paddingTop: 10, paddingRight: 20, paddingBottom: 10}}>{steps[activeStep].buttonLabel}</div>
+      </Box>
+      <MobileStepper
+        variant="text"
+        sx={{ borderRadius: '10px', 
+        bgcolor: 'transparent',}}
+        steps={maxSteps}
+        position="static"
+        activeStep={activeStep}
+        nextButton={
+          <Button
+            size="small"
+            onClick={handleNext}
+            disabled={activeStep === maxSteps - 1}
+          >
+            Next
+            {theme.direction === 'rtl' ? (
+              <KeyboardArrowLeft />
+            ) : (
+              <KeyboardArrowRight />
+            )}
+          </Button>
         }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
+        backButton={
+          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+            {theme.direction === 'rtl' ? (
+              <KeyboardArrowRight />
+            ) : (
+              <KeyboardArrowLeft />
+            )}
+            Back
+          </Button>
         }
-        title="Have you checked our CoaguChek stock?"
-        subheader="May 18, 2022"
       />
-     
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          Remember to regularly check our stock of CoaguChek strips! Delivery timelines are 2-3 business days, so plan ahead!
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
-            aside for 10 minutes.
-          </Typography>
-          <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
-            medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
-            occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
-            large plate and set aside, leaving chicken and chorizo in the pan. Add
-            pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook,
-            stirring often until thickened and fragrant, about 10 minutes. Add
-            saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-          </Typography>
-          <Typography paragraph>
-            Add rice and stir very gently to distribute. Top with artichokes and
-            peppers, and cook without stirring, until most of the liquid is absorbed,
-            15 to 18 minutes. Reduce heat to medium-low, add reserved shrimp and
-            mussels, tucking them down into the rice, and cook again without
-            stirring, until mussels have opened and rice is just tender, 5 to 7
-            minutes more. (Discard any mussels that don&apos;t open.)
-          </Typography>
-          <Typography>
-            Set aside off of the heat to let rest for 10 minutes, and then serve.
-          </Typography>
-        </CardContent>
-      </Collapse>
-    </Card>
+    </Box>
   );
 }

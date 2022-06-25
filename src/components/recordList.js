@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,25 +7,37 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import { Typography } from "@mui/material";
+
 
 const Record = (props) => (
+  
   <TableRow>
-   <TableCell component="th" scope="row">
-                {props.record.name}
-              </TableCell>
-              <TableCell align="left">{props.record.note}</TableCell>
-              <TableCell align="right"><Link className="btn btn-link" to={`/edit/${props.record._id}`}>Edit</Link> |
-              <Button variant="outlined" startIcon={<DeleteIcon />}
-                onClick={() => {
-                  props.deleteRecord(props.record._id);
-                }}
-              >
-              </Button>
-              </TableCell>
-              <Outlet />
-              </TableRow>
+    <TableCell component="th" scope="row">
+      <Typography variant="body1" style={{fontWeight: 'bold'}}>{props.record.name}</Typography>
+    </TableCell>
+    <TableCell align="left">{props.record.note}</TableCell>
+    <TableCell align="right">
+                
+      <IconButton
+        aria-label="edit"
+        component={Link}
+        to={`/edit/${props.record._id}`}>
+        <EditIcon  />
+      </IconButton>
+
+      <IconButton
+        aria-label="delete"
+        onClick={() => {
+          props.deleteRecord(props.record._id);
+          }}>
+            <DeleteIcon />
+      </IconButton>
+    </TableCell>
+  </TableRow>
 
 );
  
@@ -77,19 +89,22 @@ export default function RecordList() {
  
  // This following section will display the table with the records of individuals.
  return (
+  
    <div style={{ paddingLeft: 20 }}>
-     <TableContainer component={Paper}>
+    {records.length > 0 ?
+     <TableContainer component={Paper} elevation={0}>
       <Table sx={{ minWidth: 450 }} aria-label="simple table">
       <TableHead>
           <TableRow>
-          <TableCell>Staff Name</TableCell>
-            <TableCell align="left">Note</TableCell>
-            <TableCell align="right">Action</TableCell>
+          <TableCell></TableCell>
+            <TableCell align="left"></TableCell>
+            <TableCell align="right"></TableCell>
             </TableRow>
         </TableHead>
        <TableBody>{recordList()}</TableBody>
      </Table>
-     </TableContainer>
+     </TableContainer> : <Typography variant="body2">No new messages! </Typography>
+     }
    </div>
  );
 }

@@ -1,5 +1,6 @@
 import React from 'react'
-import {Box, Typography} from '@mui/material'
+import {Box, Typography, Grid} from '@mui/material'
+import TaskDetails from '../components/TaskDetails'
 
 const Tasks = () => {
   return (
@@ -7,6 +8,21 @@ const Tasks = () => {
       <Typography variant="h5">Tasks</Typography>
       <Typography variant="subtitle">Welcome back! Here is your day at a glance</Typography>
       
+      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        
+        <Grid item xs={1} sm={1} md={4}>
+            <TaskDetails />
+          </Grid>
+          <Grid item xs={1}  sm={1}  md={4}>
+            <TaskDetails />
+          </Grid>
+          <Grid item xs={1}  sm={1} md={4}>
+            <TaskDetails />
+          </Grid>
+
+       
+      </Grid>
+
     </Box>
   )
 }

@@ -1,78 +1,62 @@
 import {Box, List, ListItem, ListItemButton, ListItemIcon,ListItemText,Divider, Switch} from '@mui/material'
 import InboxIcon from '@mui/icons-material/Inbox';
 import SettingsIcon from '@mui/icons-material/Settings';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import ClassIcon from '@mui/icons-material/Class';
+import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
+import TaskOutlinedIcon from '@mui/icons-material/TaskOutlined';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ModeNightIcon from '@mui/icons-material/ModeNight';
-import ContactsIcon from '@mui/icons-material/Contacts';
-import NoteIcon from '@mui/icons-material/Note';
+import ContactsOutlinedIcon from '@mui/icons-material/ContactsOutlined';
+import TabOutlinedIcon from '@mui/icons-material/TabOutlined';
 import React from 'react'
 import {Link} from 'react-router-dom'
  
-/* TODO: Refactor List with mapping to follow DRY  */
+
+function createData(icon, name, link) {
+  return { icon, name, link};
+}
+
+const rows = [
+  createData(<DashboardOutlinedIcon />, 'Dashboard', '/'),
+  createData(<InboxIcon />, 'Messages', 'Messages'),
+  createData(<TaskOutlinedIcon />, 'Tasks/Projects', 'Tasks'),
+  createData(<CalendarMonthIcon />, 'Schedule', 'Schedule'),
+  createData(<TabOutlinedIcon />, 'Resources', 'Resources'),
+  createData(<ContactsOutlinedIcon />, 'Contacts', 'Contacts'),
+  createData(<SettingsIcon />, 'Settings', 'Settings'),
+];
 
 const Sidebar = () => {
   return (
     <Box flex={1} padding={2} sx={{display: {xs: "none", sm: "block"}}}>
       <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <Link style={{ textDecoration: 'none', color: '#55585A'}} to="/"><ListItemText primary="Dashboard" /></Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <InboxIcon />
-              </ListItemIcon>
-              <Link style={{ textDecoration: 'none', color: '#55585A' }} to="Messages"><ListItemText primary="Messages" /></Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <ClassIcon />
-              </ListItemIcon>
-              <Link style={{ textDecoration: 'none', color: '#55585A' }} to="Tasks"><ListItemText primary="Tasks/Projects" /></Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <CalendarMonthIcon />
-              </ListItemIcon>
-              <Link style={{ textDecoration: 'none', color: '#55585A' }} to="Schedule"><ListItemText primary="Schedule" /></Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <NoteIcon />
-              </ListItemIcon>
-              <Link style={{ textDecoration: 'none', color: '#55585A' }} to="Resources"><ListItemText primary="Resources" /></Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <ContactsIcon />
-              </ListItemIcon>
-              <Link style={{ textDecoration: 'none', color: '#55585A' }} to="Contacts"><ListItemText primary="Contacts" /></Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <SettingsIcon />
-              </ListItemIcon>
-              <Link style={{ textDecoration: 'none', color: '#55585A' }} to="Settings"><ListItemText primary="Settings" /></Link>
-            </ListItemButton>
-          </ListItem>
+      {rows.map((row) => (
+             <ListItem disablePadding>
+             <ListItemButton key={row.icon} sx={{
+         "&.Mui-selected": {
+           backgroundColor: "#0093E9",
+           color: '#fff',
+         },
+         "&.Mui-focusVisible": {
+           backgroundColor: "#0093E9",
+           color: '#fff',
+         },
+         ":hover": {
+           backgroundColor: "#d5f0ff",
+           color: '#fff !important',
+         }
+       }}>
+               <ListItemIcon>
+               {row.icon}
+               </ListItemIcon>
+               <Link style={{ textDecoration: 'none', color: '#676b6e'}} to={row.link}><ListItemText primary={row.name} /></Link>
+             </ListItemButton>
+           </ListItem>
+
+              
+          ))}
+
         </List>
+
         <Divider />
         <List>
           <ListItem disablePadding>

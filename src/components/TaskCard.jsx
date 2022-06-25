@@ -1,17 +1,18 @@
 import * as React from 'react';
-import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
-import CommentIcon from '@mui/icons-material/Comment';
-import {Divider, Typography} from '@mui/material';
+import {Box, Button, Typography} from '@mui/material';
 
 export default function TaskCard() {
   const [checked, setChecked] = React.useState([0]);
 
+  const taskList = [
+    "Deliveries",
+    "order boxes"
+  ]
   const handleToggle = (value) => () => {
     const currentIndex = checked.indexOf(value);
     const newChecked = [...checked];
@@ -26,23 +27,19 @@ export default function TaskCard() {
   };
 
   return (
-    <List sx={{ width: '100%', maxWidth: 420, bgcolor: 'background.paper', borderRadius: '15px', marginTop: '10px', marginBotton: '10px', marginRight: '10px' }}>
+    <Box sx={{ mt: 1, height: 230, width: '100%', bgcolor: 'background.paper', borderRadius: '10px' }}>
       
-      <Typography sx={{ marginLeft: '15px', marginTop: '10px' }}>Tasks</Typography>
-      {["eat", "work", "sleep"].map((value) => {
+      <Typography variant="h6" sx={{ marginLeft: '15px', paddingTop: '10px'}}>Tasks</Typography>
+      {taskList.map((value) => {
         const labelId = `checkbox-list-label-${value}`;
 
         return (
           <ListItem
             key={value}
-            secondaryAction={
-              <IconButton edge="end" aria-label="comments">
-                <CommentIcon />
-              </IconButton>
-            }
+            
             disablePadding
           >
-            <ListItemButton role={undefined} onClick={handleToggle(value)} dense>
+            <ListItemButton role={undefined} onClick={handleToggle(value)} dense sx={{paddingLeft: 3}}>
               <ListItemIcon>
                 <Checkbox
                   edge="start"
@@ -52,16 +49,14 @@ export default function TaskCard() {
                   inputProps={{ 'aria-labelledby': labelId }}
                 />
               </ListItemIcon>
-              <ListItemText id={labelId} primary={`Task ${value}`} secondary={`subtitle for ${value}`} />
+              <ListItemText id={labelId} primary={`${value}`} secondary={`subtitle for ${value}`} />
             </ListItemButton>
           </ListItem>
         );
       })}
-      
-      <Divider variant="middle" />
-      
-      <ListItemText primary={<Typography align="center" type="body" style={{ color: '#000000', paddingTop: 3 }}>View all</Typography>} />
-    </List>
+        
+      <div align="right" style={{paddingRight: 20, paddingBottom: 10, paddingTop: 10}}><Button variant="contained" disableElevation type="submit">View All</Button> </div>
+    </Box>
     
   );
 }

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
-import {Box } from '@mui/material'
- 
+import {Box, Typography, List, Button } from '@mui/material' 
+import TextField from '@mui/material/TextField';
+
 export default function Create() {
  const [form, setForm] = useState({
    name: "",
@@ -38,41 +39,48 @@ export default function Create() {
    setForm({ name: "", note: "" });
    navigate("/");
  }
+
+  const handleClear = () => {
+    setForm({ name: "", note: "" })
+  }
  
  // This following section will display the form that takes the input from the user.
  return (
   <Box flex={4} padding={3} bgcolor="#F4F4F4">
-     <h3>Create New Message</h3>
+    
+    <Typography variant="h5" style={{paddingBottom: '10px'}}>Create New Message</Typography>
+
+    <List sx={{ width: '95%', bgcolor: 'background.paper', borderRadius: '15px', padding: '20px'}}>
+      
+
      <form onSubmit={onSubmit}>
-       <div className="form-group">
-         <label htmlFor="name">Name</label>
-         <input
-           type="text"
-           className="form-control"
-           id="name"
-           value={form.name}
-           onChange={(e) => updateForm({ name: e.target.value })}
-         />
+       <div className="form-group" style={{paddingBottom: '15px'}}>
+       <TextField fullWidth required id="name" label="Staff Name" variant="outlined" value={form.name}
+           onChange={(e) => updateForm({ name: e.target.value })} />
        </div>
+
        <div className="form-group">
-         <label htmlFor="note">Message</label>
-         <input
-           type="text"
-           className="form-control"
-           id="note"
-           value={form.note}
-           onChange={(e) => updateForm({ note: e.target.value })}
-         />
+       <TextField
+        fullWidth
+        required
+          id="note"
+          label="Message"
+          multiline
+          rows={4}
+          value={form.note}
+          defaultValue="Default Value"
+          onChange={(e) => updateForm({ note: e.target.value })}
+        />
+
        </div>
        
-       <div className="form-group">
-         <input
-           type="submit"
-           value="Create Note"
-           className="btn btn-primary"
-         />
+       <div className="form-group" style={{paddingTop: '15px'}}>
+       <Button variant="contained" disableElevation type="submit">Submit</Button> 
+       <Button style={{marginLeft: '10px' }} variant="outlined" color="error" onClick={handleClear}>Clear</Button>
        </div>
      </form>
+     
+     </List>
    </Box>
  );
 }

@@ -25,9 +25,9 @@ function App() {
         <Sidebar />
 
         <Routes>
-            <Route path="*" element={<Feed />}/>
+            <Route path="*" element={<Feed />} />
             <Route path="/edit">
-              <Route path=":id" element={<Edit />} />
+              <Route path=":id" element={<Edit />}/>
             </Route>
             
             <Route path="/create" element={<Create />} />
