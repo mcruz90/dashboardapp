@@ -10,17 +10,30 @@ export const theme = createTheme({
           lineHeight: 2,
           
         },
-        body: {
+        
+        subtitle2: {
+            fontSize: 14,
+            color: "#6D6D6D",
+            lineHeight: 1.5,
+            
+          },
+        body1: {
             color: '#35303D',
-            fontWeight: 200,
+            fontSize: 16,
+            fontWeight: 400,
+            lineHeight: 1.5
         },
         body2: {
             color: '#35303D',
-            fontWeight: 200,
+            fontSize: 16,
+            fontWeight: 600,
+            lineHeight: 1.5
         },
 
         h6: {
             color: '#35303D',
+            fontSize: 20,
+            fontWeight: 600,
         },
         
         h5: {

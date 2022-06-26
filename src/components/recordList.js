@@ -17,9 +17,9 @@ const Record = (props) => (
   
   <TableRow>
     <TableCell component="th" scope="row">
-      <Typography variant="body1" style={{fontWeight: 'bold'}}>{props.record.name}</Typography>
+      <Typography variant="body2">{props.record.name}</Typography>
     </TableCell>
-    <TableCell align="left">{props.record.note}</TableCell>
+    <TableCell align="left"><Typography variant="body1">{props.record.note}</Typography></TableCell>
     <TableCell align="right">
                 
       <IconButton
@@ -103,7 +103,7 @@ export default function RecordList() {
         </TableHead>
        <TableBody>{recordList()}</TableBody>
      </Table>
-     </TableContainer> : <Typography variant="body2">No new messages! </Typography>
+     </TableContainer> : <Typography variant="body1">No new messages! </Typography>
      }
    </div>
  );

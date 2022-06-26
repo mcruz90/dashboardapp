@@ -1,6 +1,8 @@
 import React from 'react'
 import {Box, Typography, Grid} from '@mui/material'
 import TaskDetails from '../components/TaskDetails'
+import TaskInProgress from '../components/TaskInProgress'
+import TaskCompleted from '../components/TaskCompleted'
 
 const Tasks = () => {
   return (
@@ -14,10 +16,10 @@ const Tasks = () => {
             <TaskDetails />
           </Grid>
           <Grid item xs={1}  sm={1}  md={4}>
-            <TaskDetails />
+            <TaskInProgress />
           </Grid>
           <Grid item xs={1}  sm={1} md={4}>
-            <TaskDetails />
+            <TaskCompleted />
           </Grid>
 
        

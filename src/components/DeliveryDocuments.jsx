@@ -15,9 +15,9 @@ import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
-import PageviewIcon from '@mui/icons-material/Pageview';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import FileOpenOutlinedIcon from '@mui/icons-material/FileOpenOutlined';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 
@@ -82,7 +82,7 @@ const headCells = [
     id: 'name',
     numeric: false,
     disablePadding: true,
-    label: 'Deliveries',
+    label: 'Document Name',
   },
   {
     id: 'delivery',
@@ -182,7 +182,7 @@ const EnhancedTableToolbar = (props) => {
       ) : (
         <Typography
           sx={{ flex: '1 1 100%' }}
-          variant="h6"
+          variant="h5"
           id="tableTitle"
           component="div"
         >
@@ -193,7 +193,7 @@ const EnhancedTableToolbar = (props) => {
       {numSelected > 0 ? (
         <Tooltip title="Delete">
           <IconButton>
-            <DeleteIcon />
+            <DeleteOutlineOutlinedIcon />
           </IconButton>
         </Tooltip>
       ) : (
@@ -273,13 +273,15 @@ const DeliveryDocuments = () => {
                         scope="row"
                         padding="normal"
                       >
-                        {row.name}
+                        <Typography variant="body1">
+                        {row.name}</Typography>
                       </TableCell>
-                      <TableCell align="left">{row.delivery}</TableCell>
-                      <TableCell align="right">{row.dateAdded}</TableCell>
-                      <TableCell align="right">{row.fileSized}</TableCell>
+                      
+                      <TableCell align="left"><Typography variant="body1">{row.delivery}</Typography></TableCell>
+                      <TableCell align="right"><Typography variant="body1">{row.dateAdded}</Typography></TableCell>
+                      <TableCell align="right"><Typography variant="body1">{row.fileSized}</Typography></TableCell>
                       <TableCell align="right">
-                        <div style={{justifyContent: 'space-around', display: 'flex'}}><PageviewIcon /> <EditIcon /> <DeleteIcon />
+                        <div style={{justifyContent: 'space-around', display: 'flex'}}><FileOpenOutlinedIcon /> <EditOutlinedIcon /> <DeleteOutlineOutlinedIcon />
                         </div>
                       </TableCell>
                     </TableRow>

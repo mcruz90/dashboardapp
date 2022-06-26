@@ -25,7 +25,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function TaskDetails() {
+export default function TaskCompleted() {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -45,7 +45,7 @@ export default function TaskDetails() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="To Do"
+        title="Completed"
         subheader="Category"
       />
       <CardContent>

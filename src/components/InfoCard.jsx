@@ -18,7 +18,7 @@ const steps = [
   {
     label: 'Calendar review',
     description:
-      `Remember to review the calendar weekly to check for RiTux/Truxima/Ruxience
+      `Review the calendar weekly to check for RiTux/Truxima/Ruxience
       prescriptions that need to be brought down to the in-patient pharmacy`,
       buttonLabel: <Button disableElevation variant="contained">More Info</Button>,
   },
@@ -26,16 +26,14 @@ const steps = [
     label: 'CoaguChek strips',
     description: `Don't forget to check our stock regularly! Order directly from
             Roche before 4pm; ETA is roughly 3 business days so plan accordingly. `,
-    buttonLabel: <Button>More Info</Button>,
+    buttonLabel: <Button disableElevation variant="contained">More Info</Button>,
   },
   {
     label: 'Need a refresher?',
-    description: `Has it been a while since you've set up a Purolator delivery?
-      Global Payments POS slips not matching our Positec reports? Can't remember
-      where our blood pressure machines come from? Visit the 'Resources'
-      section to review procedures and tips on troubleshooting common and rare issues.
+    description: `Can't remember the Purolator login? Deliveries sent to the wrong address?
+    Visit the 'Resources' page to review procedures.
          `,
-    buttonLabel: <Button>More Info</Button>,
+    buttonLabel: <Button disableElevation variant="contained">More Info</Button>,
   },
 ];
 
@@ -68,7 +66,7 @@ export default function InfoCard() {
         <Typography sx={{ color: 'white'}} variant="h6">{steps[activeStep].label}</Typography>
       </Paper>
       <Box sx={{ height: 100, p: 2}}>
-        <Typography variant="body2" sx={{ color: 'white',}}>{steps[activeStep].description}</Typography>
+        <Typography variant="body1" sx={{ color: 'white',}}>{steps[activeStep].description}</Typography>
         <div align="right" style={{paddingTop: 10, paddingRight: 20, paddingBottom: 10}}>{steps[activeStep].buttonLabel}</div>
       </Box>
       <MobileStepper

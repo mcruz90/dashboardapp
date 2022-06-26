@@ -49,13 +49,13 @@ export default function TaskCard() {
                   inputProps={{ 'aria-labelledby': labelId }}
                 />
               </ListItemIcon>
-              <ListItemText id={labelId} primary={`${value}`} secondary={`subtitle for ${value}`} />
+              <ListItemText id={labelId} primary={<Typography variant="body2">{value}</Typography>} secondary={<Typography variant="body1">subtitle for {value}</Typography>} />
             </ListItemButton>
           </ListItem>
         );
       })}
         
-      <div align="right" style={{paddingRight: 20, paddingBottom: 10, paddingTop: 10}}><Button variant="contained" disableElevation type="submit">View All</Button> </div>
+      <div align="right" style={{paddingRight: 20, paddingBottom: 10}}><Button variant="contained" disableElevation type="submit">View All</Button> </div>
     </Box>
     
   );

@@ -73,6 +73,11 @@ const Resources = () => {
       </TabPanel>
       <TabPanel value={value} index={1}>
         <p>Ordering OTC -- PO and Receiving</p>
+        <p>Stock transfers -- Rx to OTC and vice-versa</p>
+        <p>Stock transfers -- pharmacy to pharmcacy</p>
+        <p>Processing Cash transactions - purchases, partials, refunds, A/R</p>
+        <p>Lookup -- receipts / rx pickups</p>
+        <p>Positec Finestra Manual.pdf</p>
       </TabPanel>
       <TabPanel value={value} index={2}>    
       </TabPanel>
