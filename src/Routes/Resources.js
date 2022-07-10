@@ -7,6 +7,8 @@ import Tab from '@mui/material/Tab';
 import DeliveryDocuments from '../components/DeliveryDocuments';
 import FormDocuments from '../components/FormDocuments';
 import SupplyDocuments from '../components/SupplyDocuments';
+import FileUpload from '../components/fileupload/FileUpload';
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -88,6 +90,11 @@ const Resources = () => {
         <FormDocuments />  
       </TabPanel>
       <TabPanel value={value} index={5}>  
+
+      
+        <FileUpload />
+
+        
         <p>Cash/Till Procedures / Opening / Closing Procedures</p>
         <p>Reporting Procedures (daily cash/month-end/manager-requested reports)</p>
         <p>Inventory Day</p>

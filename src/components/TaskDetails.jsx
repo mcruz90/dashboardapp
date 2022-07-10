@@ -50,9 +50,7 @@ export default function TaskDetails() {
       />
       <CardContent>
         <Typography variant="body1" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like.
+          <p>To Do: Create a logger for delivery issues.. [delivery #] [summary] [our error/patient error/courier error] and have ability to do data analysis</p>
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

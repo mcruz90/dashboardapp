@@ -63,10 +63,10 @@ export default function InfoCard() {
           
         }}
       >
-        <Typography sx={{ color: 'white'}} variant="h6">{steps[activeStep].label}</Typography>
+        <Typography sx={{ color: 'white', pt: 3, pl: 1}} variant="h6">{steps[activeStep].label}</Typography>
       </Paper>
       <Box sx={{ height: 100, p: 2}}>
-        <Typography variant="body1" sx={{ color: 'white',}}>{steps[activeStep].description}</Typography>
+        <Typography variant="body1" sx={{ color: 'white', pl: 1}}>{steps[activeStep].description}</Typography>
         <div align="right" style={{paddingTop: 10, paddingRight: 20, paddingBottom: 10}}>{steps[activeStep].buttonLabel}</div>
       </Box>
       <MobileStepper

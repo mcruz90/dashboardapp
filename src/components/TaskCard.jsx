@@ -29,7 +29,7 @@ export default function TaskCard() {
   return (
     <Box sx={{ mt: 1, height: 230, width: '100%', bgcolor: 'background.paper', borderRadius: '10px' }}>
       
-      <Typography variant="h6" sx={{ marginLeft: '15px', paddingTop: '10px'}}>Tasks</Typography>
+      <Typography variant="h6" sx={{ marginLeft: '20px', paddingTop: '20px'}}>Tasks</Typography>
       {taskList.map((value) => {
         const labelId = `checkbox-list-label-${value}`;
 
@@ -55,7 +55,7 @@ export default function TaskCard() {
         );
       })}
         
-      <div align="right" style={{paddingRight: 20, paddingBottom: 10}}><Button variant="contained" disableElevation type="submit">View All</Button> </div>
+      <div align="right" style={{paddingRight: 20, paddingBottom: '20px'}}><Button variant="contained" disableElevation type="submit">View All</Button> </div>
     </Box>
     
   );

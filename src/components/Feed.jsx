@@ -1,8 +1,8 @@
 import React from 'react'
 import {Box, Typography, Grid} from '@mui/material'
 import TaskCard from './TaskCard'
-import RecentlyCompleted from './RecentlyCompleted'
 import InfoCard from './InfoCard'
+import RecentMessages from './RecentMessages'
 
 const Feed = () => {
   return (
@@ -20,7 +20,7 @@ const Feed = () => {
           </Grid>
 
         <Grid item xs={12} md={12}>
-            <RecentlyCompleted />
+            <RecentMessages />
           </Grid>
        
       </Grid>

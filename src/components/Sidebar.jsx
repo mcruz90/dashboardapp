@@ -1,5 +1,5 @@
 import {Box, List, ListItem, ListItemButton, ListItemIcon,ListItemText,Divider, Switch} from '@mui/material'
-import InboxIcon from '@mui/icons-material/Inbox';
+import SchoolIcon from '@mui/icons-material/School';
 import SettingsIcon from '@mui/icons-material/Settings';
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
 import TaskOutlinedIcon from '@mui/icons-material/TaskOutlined';
@@ -17,8 +17,8 @@ function createData(icon, name, link) {
 
 const rows = [
   createData(<DashboardOutlinedIcon />, 'Dashboard', '/'),
-  createData(<InboxIcon />, 'Messages', 'Messages'),
-  createData(<TaskOutlinedIcon />, 'Tasks/Projects', 'Tasks'),
+  createData(<SchoolIcon />, 'Training', 'Training'),
+  createData(<TaskOutlinedIcon />, 'Projects', 'Projects'),
   createData(<CalendarMonthIcon />, 'Schedule', 'Schedule'),
   createData(<TabOutlinedIcon />, 'Resources', 'Resources'),
   createData(<ContactsOutlinedIcon />, 'Contacts', 'Contacts'),

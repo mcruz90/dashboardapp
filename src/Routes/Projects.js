@@ -4,7 +4,7 @@ import TaskDetails from '../components/TaskDetails'
 import TaskInProgress from '../components/TaskInProgress'
 import TaskCompleted from '../components/TaskCompleted'
 
-const Tasks = () => {
+const Projects = () => {
   return (
     <Box flex={4} padding={3} bgcolor="#F4F4F4">
       <Typography variant="h5">Tasks</Typography>
@@ -29,4 +29,4 @@ const Tasks = () => {
   )
 }
 
-export default Tasks
+export default Projects

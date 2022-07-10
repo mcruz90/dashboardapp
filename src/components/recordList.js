@@ -87,6 +87,7 @@ export default function RecordList() {
    });
  }
  
+ 
  // This following section will display the table with the records of individuals.
  return (
   

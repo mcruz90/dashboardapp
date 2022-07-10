@@ -39,10 +39,10 @@ export default function Edit() {
  
  // These methods will update the state properties.
  function updateForm(value) {
-   return setForm((prev) => {
-     return { ...prev, ...value };
-   });
- }
+    return setForm((prev) => {
+      return { ...prev, ...value };
+    });
+  }
  
  async function onSubmit(e) {
    e.preventDefault();
@@ -52,7 +52,7 @@ export default function Edit() {
    };
  
    // This will send a post request to update the data in the database.
-   await fetch(`http://localhost:5000/update/${params.id}`, {
+   await fetch(`http://localhost:5000/edit/${params.id}`, {
      method: "POST",
      body: JSON.stringify(editedRecord),
      headers: {
@@ -60,13 +60,14 @@ export default function Edit() {
      },
    });
  
-   navigate("/")
+   navigate("/");
  }
  
  // This following section will display the form that takes input from the user to update the data.
  return (
   <Box flex={4} padding={3} bgcolor="#F4F4F4">
      <h3>Update Note</h3>
+     
      <form onSubmit={onSubmit}>
        <div className="form-group">
          <label htmlFor="name">Name: </label>
