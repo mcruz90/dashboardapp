@@ -1,7 +1,6 @@
 import React from 'react'
 import {Box, Typography, Button} from '@mui/material'
 import List from '@mui/material/List';
-import TrainingQuiz from '../components/quiz/TrainingQuiz';
 
 
 const Messages = () => {
